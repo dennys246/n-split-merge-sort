@@ -9,9 +9,10 @@ class sorter():
 		self.min_value = 2000
 		self.max_value = 20000
 		self.step = 2000
-		self.sort_functions = [self.bubble_sort, self.merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort]
-		self.function_parameters = [None, None, 2, 5, 10, 100, 200, 300, 400, 500]
-		self.function_names = [f'N-Split Merge Sort - {parameter} Splits' for parameter in self.function_parameters]
+		self.sort_functions = [self.bubble_sort, self.merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort]
+		self.function_parameters = [None, None, 2, 5, 10, 100, 200, 300, 400]
+		self.function_names = ['Bubble Sort', 'Merge Sort'] # Add on non n-split merge functions names
+		self.function_names += [f'N-Split Merge Sort - {parameter} Splits' for parameter in self.function_parameters if parameter is not None]
 		self.function_timings = []
 		self.list_sizes = range(self.min_value, self.max_value, self.step)
 
@@ -113,7 +114,7 @@ class sorter():
 		for n in range(n_splits):
 			split_start = round(n*split_size)
 			split_end = round((n + 1)*split_size) # Calculate split position
-			splits.append(self.bubble_sort(array[split_start:split_end])) # Split and sort arrays
+			splits.append(self.bubble_sort(array[split_start:split_end])) # Split and sort arrays 
 		
 		next_values = [splits[split_indice][split_position] for split_indice, split_position in enumerate(split_indices)]
 		for k in range(len(array)): # Merge all splits
