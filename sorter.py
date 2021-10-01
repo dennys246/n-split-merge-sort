@@ -6,9 +6,9 @@ import numpy as np
 class sorter():
 
 	def __init__(self):
-		self.min_value = 5000
-		self.max_value = 50000
-		self.step = 5000
+		self.min_value = 2000
+		self.max_value = 20000
+		self.step = 2000
 		self.sort_functions = [self.bubble_sort, self.merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort]
 		self.function_parameters = [None, None, 2, 5, 10, 100, 200, 300, 400, 500]
 		self.function_names = [f'N-Split Merge Sort - {parameter} Splits' for parameter in self.function_parameters]
