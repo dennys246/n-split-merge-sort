@@ -6,11 +6,11 @@ import numpy as np
 class sorter():
 
 	def __init__(self):
-		self.min_value = 10000
-		self.max_value = 100000
-		self.step = 10000
-		self.sort_functions = [self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort]
-		self.function_parameters = [100, 200, 300, 400, 500, 1000]
+		self.min_value = 5000
+		self.max_value = 50000
+		self.step = 5000
+		self.sort_functions = [self.bubble_sort, self.merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort, self.n_merge_sort]
+		self.function_parameters = [None, None, 2, 5, 10, 100, 200, 300, 400, 500]
 		self.function_names = [f'N-Split Merge Sort - {parameter} Splits' for parameter in self.function_parameters]
 		self.function_timings = []
 		self.list_sizes = range(self.min_value, self.max_value, self.step)
@@ -106,7 +106,7 @@ class sorter():
 		if len(array) <= 1: # Ignore base case of empty or 1 length array (Usual for recursive algorithm)
 			return array # Return the already sorted list
 
-		n_splits = parameter
+		n_splits = parameter # Declare how many times to split the list before merging
 		split_size = len(array)/n_splits
 		splits = []
 		split_indices = [0]*n_splits
